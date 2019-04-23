@@ -1,0 +1,52 @@
+Sub fluxo()
+
+UserForm1.Show
+
+End Sub
+Private Sub CommandButton1_Click()
+Dim v1 As String
+Dim data As Date
+Dim v2 As String
+Dim outmail As Object
+Dim textoDaSelecao As String
+Dim outapp As Object
+Dim intervalo As Range
+
+
+
+v1 = TextBox1.Value
+data = TextBox2.Value
+v2 = TextBox3.Value
+
+Sheets("Demandas").Select
+
+Set intervalo = Range("A2:C2").SpecialCells(xlCellTypeVisible)
+
+Range("A2") = data
+Range("B2") = v2
+Range("C2") = v1
+
+For Each valor In intervalo
+    textoDaSelecao = textoDaSelecao & "   " & valor
+Next
+
+
+Set outapp = CreateObject("Outlook.Application")
+Set outmail = outapp.createitem(0)
+
+
+MsgBox ("Sua solicitação foi concluida")
+
+UserForm1.Hide
+
+With outmail
+    .to = "victoracoelho22@gmail.com"
+    .cc = ""
+    .bcc = ""
+    .Subject = "Solicitação de nova demanda"
+    .body = Mid(textoDaSelecao, 2)
+    .send
+End With
+
+
+End Sub
