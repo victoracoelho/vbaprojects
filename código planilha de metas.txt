@@ -30,9 +30,25 @@ End Sub
 
 Private Sub UserForm_Initialize()
     With UserForm1.ComboBox1
+    .AddItem ("Aguia Branca")
     .AddItem ("Alfredo Chaves")
     .AddItem ("Baixo Guandu")
     .AddItem ("Cachoeiro de Itapemirim")
+    .AddItem ("Castelo")
+    .AddItem ("Colatina")
+    .AddItem ("Conceição do Castelo")
+    .AddItem ("Guaçui")
+    .AddItem ("Ibiraçu")
+    .AddItem ("Irupi")
+    .AddItem ("João Neiva")
+    .AddItem ("Mantenópolis")
+    .AddItem ("Marataízes")
+    .AddItem ("Mimoso do Sul")
+    .AddItem ("Montanha")
+    .AddItem ("Mucurici")
+    .AddItem ("Muqui")
+    .AddItem ("Santa Teresa")
+    .AddItem ("São Mateus")
     End With
     
 End Sub
