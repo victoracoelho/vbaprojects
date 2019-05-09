@@ -1,0 +1,38 @@
+Private Sub CommandButton1_Click()
+Dim range1 As Range
+Dim objeto As Control
+
+    Sheets("Planilha2").Select
+    If Range("A2").Value = "" Then
+        Set range1 = Range("A2")
+    Else
+        Set range1 = Range("A1").End(xlDown).Offset(1, 0)
+    End If
+    
+    range1.Value = UserForm1.ComboBox1.Value
+    range1.Offset(0, 1).Value = UserForm1.TextBox2.Value
+    range1.Offset(0, 2).Value = UserForm1.TextBox3.Value
+    range1.Offset(0, 3).Value = UserForm1.TextBox4.Value
+    range1.Offset(0, 4).Value = UserForm1.TextBox5.Value
+    range1.Offset(0, 5).Value = UserForm1.TextBox6.Value
+    
+    UserForm1.Hide
+    
+    For Each objeto In UserForm1.Controls
+        On Error Resume Next
+        objeto.Value = ""
+    Next
+    
+    
+End Sub
+
+
+
+Private Sub UserForm_Initialize()
+    With UserForm1.ComboBox1
+    .AddItem ("Alfredo Chaves")
+    .AddItem ("Baixo Guandu")
+    .AddItem ("Cachoeiro de Itapemirim")
+    End With
+    
+End Sub
